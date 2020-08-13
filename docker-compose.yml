@@ -1,0 +1,12 @@
+version: '3'
+services:
+  node:
+    container_name: docker-compose-webpack
+    build: .
+    image: docker-compose-webpack
+    command: webpack-dev-server
+    volumes:
+      - ./public:/src/public
+      - ./js:/src/js
+    ports:
+      - "8080:8080"
