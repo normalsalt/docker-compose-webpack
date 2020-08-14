@@ -28,7 +28,8 @@ export class MyElement extends LitElement {
   render() {
     return html`
       <h1>Hello, ${this.name}!</h1>
-      <button @click=${this._onClick} part="button">Click Count : ${this.count}</button>
+      <slot></slot>
+      <button @click=${this._onClick} part="button">${this.count}</button>
     `;
   }
 
