@@ -1,8 +1,21 @@
-import { LitElement, html } from "lit-element";
+import { LitElement, html, css } from "lit-element";
 
-class GithubSearch extends LitElement {
+export class GithubSearch extends LitElement {
+  static get styles() {
+    return css`
+      :host {
+        display: block;
+        border: solid 1px gray;
+        padding: 0px 30px 20px;
+        margin-top: 8px;
+      }
+    `;
+  }
+
   static get properties() {
-    return { myArray: { type: Array, reflect: true } };
+    return {
+      myArray: { type: Array, reflect: true }
+    };
   }
 
   constructor() {
@@ -21,6 +34,7 @@ class GithubSearch extends LitElement {
 
   render() {
     return html`
+      <h1>GitHub Search</h1>
       <p>keyword : <input type="text" placeholder="Search" @change="${(e) => { this.getJson(e.target.value); }}"></p>
       ${this.myArray.length? html`
         <table border="1">
@@ -46,4 +60,4 @@ class GithubSearch extends LitElement {
   }
 }
 
-customElements.define("github-search", GithubSearch);
+window.customElements.define('github-search', GithubSearch);
